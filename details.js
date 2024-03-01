@@ -50,9 +50,8 @@ fetch(URL, {
     const productPrice = document.createElement("p");
     detailsPrice.appendChild(productPrice);
     productPrice.innerText = product.price + "€";
-  });
 
-editBtn.addEventListener("click", editFn);
-const editFn = function (e) {
-  window.location.assign("./backoffice.html?productId=" + detailsId);
-}.catch((err) => console.log(err));
+    editBtn.innerHTML = `<a href="./backoffice.html?productId=${product._id}">EDIT</a>`;
+  })
+
+  .catch((err) => console.log(err));

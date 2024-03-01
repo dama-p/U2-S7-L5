@@ -5,6 +5,7 @@ const productImg = document.getElementById("productImg");
 const productPrice = document.getElementById("productPrice");
 const submitBtn = document.getElementById("submitBtn");
 const resetBtn = document.getElementById("resetBtn");
+const deleteBtn = document.getElementById("deleteBtn");
 const pageMode = document.getElementById("pageMode");
 
 const form = document.querySelector("form");
@@ -46,12 +47,15 @@ window.onload = () => {
         productImg.value = product.imageUrl;
         productPrice.value = product.price;
 
+        resetBtn.classList.add("d-none");
+
         console.log(product);
       });
   } else {
     const createMode = document.createElement("p");
     createMode.innerText = "Insert your product information";
     pageMode.appendChild(createMode);
+    deleteBtn.classList.add("d-none");
   }
 };
 
@@ -84,12 +88,29 @@ const submitProduct = function (e) {
     })
 
     .then((newProduct) => {
-      alert("Il prodotto " + newProduct.name + " è stato salvato!");
+      alert("Your product " + newProduct.name + (detailsId ? " has been successfully saved!" : " has been created!"));
 
       resetFields();
     })
     .catch((error) => console.log(error));
 };
+
+const deleteFn = function () {
+  fetch(URL, {
+    method: "DELETE",
+
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUxYTdjNTRjNTllYzAwMTk5MGQ3M2IiLCJpYXQiOjE3MDkyODczNjUsImV4cCI6MTcxMDQ5Njk2NX0.6yZekPUmgVzWjCE3blgy2qGt-SBVB9cffFDDPt4XVW8",
+    },
+  });
+
+  window.location.assign("./index.html");
+}; 
+
+form.addEventListener("submit", submitProduct);
+resetBtn.addEventListener("click", resetFields);
+deleteBtn.addEventListener("click", deleteFn);
 
 form.addEventListener("submit", submitProduct);
 resetBtn.addEventListener("click", resetFields);

@@ -30,7 +30,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/`, {
     productList.forEach((product) => {
       const productsRow = document.getElementById("productsRow");
       const productsCol = document.createElement("div");
-      productsCol.classList.add("col");
+      productsCol.classList.add("col-12", "col-md-6", "col-lg-4", "col-xxl-3", "d-flex", "justify-content-center");
       productsRow.appendChild(productsCol);
 
       const card = document.createElement("div");
@@ -71,7 +71,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/`, {
       cardbody.appendChild(pDetails);
       //pDetails.setAttribute("href", `./details.html?productId=${product._id}`);
       // pDetails.innerText = "Details";
-      pDetails.innerHTML = `<a href="./details.html?productId=${product._id}">DETTAGLI</a>`
+      pDetails.innerHTML = `<a href="./details.html?productId=${product._id}">DETTAGLI</a>`;
 
       console.log(product.price);
       console.log(product.imageUrl);

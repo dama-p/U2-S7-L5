@@ -106,7 +106,7 @@ const deleteFn = function () {
   });
 
   window.location.assign("./index.html");
-}; 
+};
 
 form.addEventListener("submit", submitProduct);
 resetBtn.addEventListener("click", resetFields);

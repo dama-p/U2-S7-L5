@@ -3,7 +3,7 @@ const detailsName = document.getElementById("detailsName");
 const detailsBrand = document.getElementById("detailsBrand");
 const detailsDescription = document.getElementById("detailsDescription");
 const detailsPrice = document.getElementById("detailsPrice");
-const editBtn = document.getElementById("editBtn");
+const detailsBtns = document.getElementById("detailsBtns");
 
 const params = new URLSearchParams(window.location.search);
 const detailsId = params.get("productId");
@@ -33,11 +33,11 @@ fetch(URL, {
     const productImg = document.createElement("img");
     detailsImage.appendChild(productImg);
     productImg.src = product.imageUrl;
-    productImg.classList.add("img-fluid");
-
+  
     const productName = document.createElement("p");
     detailsName.appendChild(productName);
     productName.innerText = product.name;
+    productName.classList.add("pName")
 
     const productBrand = document.createElement("p");
     detailsBrand.appendChild(productBrand);
@@ -49,9 +49,21 @@ fetch(URL, {
 
     const productPrice = document.createElement("p");
     detailsPrice.appendChild(productPrice);
-    productPrice.innerText = product.price + "€";
+    productPrice.innerText = "Price: " + product.price + "€";
+    detailsPrice.style = "color: #ABC4E2"
 
-    editBtn.innerHTML = `<a href="./backoffice.html?productId=${product._id}">EDIT</a>`;
+    const aEdit = document.createElement("a");
+    detailsBtns.appendChild(aEdit);
+    aEdit.href=`./backoffice.html?productId=${product._id}`;
+
+    const editBtn = document.createElement("button");
+    aEdit.appendChild(editBtn);
+    editBtn.innerText = "Edit";
+    editBtn.classList.add("buttonDetails", "px-5");
+
+    // editBtn.innerHTML = `<a href="./backoffice.html?productId=${product._id}">EDIT</a>`;
+
+
   })
 
   .catch((err) => console.log(err));

@@ -96,21 +96,22 @@ const submitProduct = function (e) {
 };
 
 const deleteFn = function (e) {
-  fetch(URL, {
-    method: "DELETE",
+  confirm("Are you sure you want to delete this item?");
 
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUxYTdjNTRjNTllYzAwMTk5MGQ3M2IiLCJpYXQiOjE3MDkyODczNjUsImV4cCI6MTcxMDQ5Njk2NX0.6yZekPUmgVzWjCE3blgy2qGt-SBVB9cffFDDPt4XVW8",
-    },
-  });
+  if (true) {
+    fetch(URL, {
+      method: "DELETE",
 
-  window.location.assign("./index.html");
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUxYTdjNTRjNTllYzAwMTk5MGQ3M2IiLCJpYXQiOjE3MDkyODczNjUsImV4cCI6MTcxMDQ5Njk2NX0.6yZekPUmgVzWjCE3blgy2qGt-SBVB9cffFDDPt4XVW8",
+      },
+    });
+
+    window.location.assign("./index.html");
+  }
 };
 
 form.addEventListener("submit", submitProduct);
 resetBtn.addEventListener("click", resetFields);
 deleteBtn.addEventListener("click", deleteFn);
-
-form.addEventListener("submit", submitProduct);
-resetBtn.addEventListener("click", resetFields);

@@ -96,9 +96,9 @@ const submitProduct = function (e) {
 };
 
 const deleteFn = function (e) {
-  confirm("Are you sure you want to delete this item?");
+  let positiveAnswer = confirm("Are you sure you want to delete this item?");
 
-  if (true) {
+  if (positiveAnswer) {
     fetch(URL, {
       method: "DELETE",
 
@@ -106,9 +106,13 @@ const deleteFn = function (e) {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWUxYTdjNTRjNTllYzAwMTk5MGQ3M2IiLCJpYXQiOjE3MDkyODczNjUsImV4cCI6MTcxMDQ5Njk2NX0.6yZekPUmgVzWjCE3blgy2qGt-SBVB9cffFDDPt4XVW8",
       },
-    });
+    })
+    .then(response => response.json())
+    .then(deletedItem => {
+      alert(deletedItem.name + " has been deleted")
+      window.location.assign("./index.html")
+    })
 
-    window.location.assign("./index.html");
   }
 };
 

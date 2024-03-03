@@ -30,19 +30,18 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/`, {
     productList.forEach((product) => {
       const productsRow = document.getElementById("productsRow");
       const productsCol = document.createElement("div");
-      productsCol.classList.add("col-12", "col-md-6", "col-lg-4", "col-xxl-3", "d-flex", "justify-content-center");
+      productsCol.classList.add("col-12", "col-sm-6", "col-lg-4", "col-xxl-3", "d-flex", "justify-content-center");
       productsRow.appendChild(productsCol);
 
       const card = document.createElement("div");
       card.classList.add("card");
       productsCol.appendChild(card);
-      card.style = "width:300px;";
 
       const img = document.createElement("img");
       img.src = product.imageUrl;
       card.appendChild(img);
-      img.classList.add("card-img-top");
-      img.style = "max-height: 300px; object-fit: cover;";
+      img.classList.add("card-img-top", "img-fluid");
+      img.style = "width: 100%; height: 300px; object-fit: cover;";
 
       const cardbody = document.createElement("div");
       cardbody.classList.add("card-body");
@@ -51,16 +50,17 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/`, {
       const pName = document.createElement("p");
       pName.innerText = product.name;
       cardbody.appendChild(pName);
-      pName.classList.add("fs-3", "mb-0");
+      pName.classList.add("mb-0", "pName");
 
       const pBrand = document.createElement("p");
       pBrand.innerText = product.brand;
       cardbody.appendChild(pBrand);
-      pBrand.classList.add("text-secondary", "fs-6");
+      pBrand.classList.add("pBrand");
 
       const pDescription = document.createElement("p");
       pDescription.innerText = product.description;
       cardbody.appendChild(pDescription);
+      pDescription.classList.add("pDescription");
 
       const pPrice = document.createElement("p");
       pPrice.innerText = product.price + "€";

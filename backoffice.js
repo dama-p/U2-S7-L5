@@ -29,7 +29,7 @@ const resetFields = function () {
 window.onload = () => {
   if (detailsId) {
     const editMode = document.createElement("p");
-    editMode.innerText = "Edit your product information";
+    editMode.innerText = "Edit your product information:";
     pageMode.appendChild(editMode);
 
     fetch(URL, {
@@ -53,7 +53,7 @@ window.onload = () => {
       });
   } else {
     const createMode = document.createElement("p");
-    createMode.innerText = "Insert your product information";
+    createMode.innerText = "Insert your product information:";
     pageMode.appendChild(createMode);
     deleteBtn.classList.add("d-none");
   }
@@ -95,7 +95,7 @@ const submitProduct = function (e) {
     .catch((error) => console.log(error));
 };
 
-const deleteFn = function () {
+const deleteFn = function (e) {
   fetch(URL, {
     method: "DELETE",
 

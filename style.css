@@ -61,6 +61,10 @@ body {
   color: white;
 }
 
+.navbar a:hover {
+  color: #ffe761;
+}
+
 .card {
   border: 1px solid #ffffff;
 }
@@ -69,6 +73,8 @@ body {
   background-color: #ffffff;
   color: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .pName {
@@ -93,6 +99,72 @@ body {
 }
 
 .pDescription {
-  font-family: monospace;
   color: rgb(181, 181, 181);
+  flex-grow: 1;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
 }
+
+.buttonDetails {
+  border: none;
+  background-color: #ffb6f2;
+  letter-spacing: 0.2rem;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.buttonDetails:hover {
+  background-color: #abc4e2;
+}
+
+label {
+  font-weight: bold;
+  color: #eb90da;
+}
+
+#submitBtn {
+  border: none;
+  background-color: #ffb6f2;
+  letter-spacing: 0.2rem;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+#submitBtn:hover {
+  background-color: #eb90da;
+}
+
+#resetBtn {
+  border: none;
+  background-color: #abc4e2;
+  letter-spacing: 0.2rem;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+#resetBtn:hover {
+  background-color: #7fa3d0;
+}
+
+#pageMode p {
+  color: #abc4e2;
+  font-size: 1.5rem;
+}
+
+#deleteBtn {
+    border: none;
+    background-color: #e1526d;
+    letter-spacing: 0.2rem;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  
+  #deleteBtn:hover {
+    background-color: #b83951;
+  }

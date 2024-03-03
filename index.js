@@ -63,15 +63,19 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/`, {
       pDescription.classList.add("pDescription");
 
       const pPrice = document.createElement("p");
-      pPrice.innerText = product.price + "€";
+      pPrice.innerText = "Price: " + product.price + "€";
       cardbody.appendChild(pPrice);
-      pPrice.classList.add("text-primary");
+      pPrice.classList.add("mb-3", "text-end", "me-2");
+      pPrice.style = "color: #ABC4E2"
 
-      const pDetails = document.createElement("button");
-      cardbody.appendChild(pDetails);
-      //pDetails.setAttribute("href", `./details.html?productId=${product._id}`);
-      // pDetails.innerText = "Details";
-      pDetails.innerHTML = `<a href="./details.html?productId=${product._id}">DETTAGLI</a>`;
+      const aDetails = document.createElement("a");
+      aDetails.href = `./details.html?productId=${product._id}`;
+      cardbody.appendChild(aDetails);
+
+      const buttonDetails = document.createElement("button");
+      aDetails.appendChild(buttonDetails);
+      buttonDetails.innerText = "Details";
+      buttonDetails.classList.add("buttonDetails")
 
       console.log(product.price);
       console.log(product.imageUrl);
